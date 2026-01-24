@@ -4,6 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Генератор идей для проектов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pacifico', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .description {
+            max-width: 1200px;
+            font-size: 2rem;
+            margin: 0 auto 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            line-height: 1.6;
+        }
+
+        .ideas-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .idea-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .idea-card h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .idea-card p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #764ba2, #667eea);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-animate {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .ideas-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .image {
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dark {
+            background: #111;
+            color: white;
+        }
+
+        .realiz h3 {
+            font-size: ;
+            color: 
+
+
+        }
+    </style>
+
+    <button onclick="toggleTheme()">Сменить тему</button>
+
 </head>
 <body>
     <div class="container">
@@ -11,6 +159,9 @@
             <h1>Генератор идей для проектов - ИИдеи</h1>
         </header>
 
+        <img class="image" src = "https://learn.algoritmika.org/uploads/student/1228341/696b2a6359726.jpg" width="100%" height="100%">
+
+    
         <div class="description">
             <p>Застряли с идеями для нового проекта? </br> Этот инструмент поможет вам найти вдохновение для различных типов проектов - от веб-приложений до творческих работ.</p>
         </div>
@@ -49,5 +200,68 @@
 
     </div>
 
-  </body>
+    <script>
+
+
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+        // Анимация кнопок при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach((button, index) => {
+                // Анимация задержкой для каждой кнопки
+                setTimeout(() => {
+                    button.classList.add('btn-animate');
+                }, index * 300);
+            });
+        });
+
+        // Функция для генерации случайной идеи
+        function generateRandomIdea() {
+            const ideas = [
+                "Создайте приложение для обмена рецептами с пользовательскими отзывами",
+                "Разработайте инструмент для автоматизации рутинных задач в офисе",
+                "Создайте платформу для обмена знаниями между студентами разных вузов",
+                "Разработайте игру, где игроки создают свои собственные квесты",
+                "Создайте сервис для поиска местных событий и мероприятий",
+                "Разработайте приложение для отслеживания прогресса в изучении языков"
+            ];
+
+            const randomIndex = Math.floor(Math.random() * ideas.length);
+            return ideas[randomIndex];
+        }
+
+        // Функция для добавления новой идеи на страницу
+        function addNewIdea() {
+            const ideasContainer = document.querySelector('.ideas-container');
+            const newIdea = document.createElement('div');
+            newIdea.className = 'idea-card';
+            newIdea.innerHTML = `
+                <h3>Новая идея</h3>
+                <p>${generateRandomIdea()}</p>
+                <button class="btn" onclick="alert('Идея сохранена!')">Сохранить идею</button>
+            `;
+            ideasContainer.appendChild(newIdea);
+
+            // Анимация для новой кнопки
+            setTimeout(() => {
+                newIdea.querySelector('.btn').classList.add('btn-animate');
+            }, 100);
+        }
+
+        // Добавление кнопки для генерации новой идеи
+        const ideasContainer = document.querySelector('.ideas-container');
+        const newIdeaButton = document.createElement('button');
+        newIdeaButton.className = 'btn';
+        newIdeaButton.textContent = 'Сгенерировать новую идею';
+        newIdeaButton.style.margin = '20px auto';
+        newIdeaButton.style.display = 'block';
+        newIdeaButton.onclick = addNewIdea;
+        ideasContainer.parentNode.insertBefore(newIdeaButton, ideasContainer.nextSibling);
+
+        
+    </script>
+</body>
 </html>
+
